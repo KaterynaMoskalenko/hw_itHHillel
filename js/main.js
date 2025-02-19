@@ -14,13 +14,13 @@
 
 
 /* === 2. === */
-let distanceInKm = 1;
-let distanceInFout = 1;
+// let distanceInKm = 1;
+// let distanceInFout = 1;
 
-distanceInFout = 0.305/1000;
-if(distanceInFout < distanceInKm){
-   console.log(`${distanceInKm} is bigger on ${distanceInKm-distanceInFout}`)
-}
+// distanceInFout = 0.305/1000;
+// if(distanceInFout < distanceInKm){
+//    console.log(`${distanceInKm} is bigger on ${distanceInKm-distanceInFout}`)
+// }
 
 /* === 3. === */
 
@@ -151,8 +151,7 @@ else if (!userBirth) {
     alert('It is a pity you did not want to enter your age'); 
     userBirthMessage = userMessage;
 }
-else { userBirthMessage;
-}
+
 
 userCard = `
 ${userBirthMessage} 
@@ -168,20 +167,24 @@ let objCity = {
     'Berlin': 'Germany',
 }
 let userLocationMessage = `You live in the capital ${objCity[userLocation]}`;
+    if (!(userLocation in objCity)) { 
+        userLocationMessage = `You live in ${userLocation}`;
+    }
+
 if (userLocation === null) {
     alert('we clicked cancel you do not want to continue playinge');  
-    userLocationMessage = userMessage;
+     userLocationMessage = userMessage;
 
 }
 else if (!userLocation) {
     alert('It is a pity you did not want to enter your city'); 
     userLocationMessage = userMessage;
 }
-else { userLocationMessage;
-};
+
+
 
 if (userBirthMessage !== userLocationMessage ){
-    userCard = `
+       userCard = `
     ${userBirthMessage} 
     ${userLocationMessage}
     `;
@@ -195,25 +198,23 @@ let objKindOfSport = {'ridding' : 'Henrik van Eckerman',
      'jogging' : 'I am'};
 
 let userHobbyMessage = `“Cool! Do you want to become ${objKindOfSport[userHobby]}?`;
+    if (!(userHobby in objKindOfSport)) {
+        userHobbyMessage = `Cool! Do you want to become the best in ${userHobby}?`
+    };
 
      if (userHobby === null) {
         alert('we clicked cancel you do not want to continue playinge');  
         userHobbyMessage = userMessage;
     }
     else if (!userHobby) {
-        alert('It is a pity you did not want to enter your hobby'); 
-        userHobbyMessage = userMessage;
+         alert('It is a pity you did not want to enter your hobby'); 
+         userHobbyMessage = userMessage;
     }
-    else { userHobbyMessage;
-    }
+ 
    
-    if (userLocationMessage !== userHobbyMessage || userBirthMessage !== userHobbyMessage){
-        userCard = `
-        ${userBirthMessage} 
-        ${userLocationMessage}
-        ${userHobbyMessage}
-        `;
-    };    
+    if (userLocationMessage !== userHobbyMessage || userBirthMessage !== userHobbyMessage) {
+        userCard += `${userHobbyMessage}\n`;
+    };   
 
 alert(userCard);
 
